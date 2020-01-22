@@ -631,7 +631,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
 	// result: not IE<10
-	support.getById = !(!! window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1]) < 10);
+	support.getById = !( !!window.ActiveXObject && +( /msie\s(\d+)/i.exec( window.navigator.userAgent )[ 1 ] ) < 10 );
 
 	// ID filter and find
 	if ( support.getById ) {

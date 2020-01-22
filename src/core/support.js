@@ -1,7 +1,7 @@
 define( [
 	"../var/document",
 	"../var/support"
-], function( document, support ) {
+], function( _document, support ) {
 
 "use strict";
 
@@ -11,7 +11,7 @@ define( [
 // Because of that, this security measure has to be disabled in Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
 // result: not Safari 8
-support.createHTMLDocument = !(window.safari !== undefined && +(/Version\/(\d+)/i.exec(navigator.userAgent)[1]) === 8);
+support.createHTMLDocument = !( window.safari !== undefined && +( /Version\/(\d+)/i.exec( window.navigator.userAgent )[ 1 ] ) === 8 );
 
 return support;
 } );
