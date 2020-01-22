@@ -630,10 +630,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
-	support.getById = assert(function( el ) {
-		docElem.appendChild( el ).id = expando;
-		return !document.getElementsByName || !document.getElementsByName( expando ).length;
-	});
+	// result: not IE<10
+	support.getById = !(!! window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1]) < 10);
 
 	// ID filter and find
 	if ( support.getById ) {
