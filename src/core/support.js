@@ -10,11 +10,8 @@ define( [
 // collapse sibling forms: the second one becomes a child of the first one.
 // Because of that, this security measure has to be disabled in Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
-support.createHTMLDocument = ( function() {
-	var body = document.implementation.createHTMLDocument( "" ).body;
-	body.innerHTML = "<form></form><form></form>";
-	return body.childNodes.length === 2;
-} )();
+// result: not Safari 8
+support.createHTMLDocument = !(window.safari !== undefined && +(/Version\/(\d+)/i.exec(navigator.userAgent)[1]) === 8);
 
 return support;
 } );
